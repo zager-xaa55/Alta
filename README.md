@@ -1,8 +1,7 @@
 # Alta
 third iteration cyclica engine focusing on an even smaller client and accelerated server-side graphics
 
-
-`insert giant image here`
+![logo](/gitRes/gitres-alta.png)
 
 ## What is Alta?
 
