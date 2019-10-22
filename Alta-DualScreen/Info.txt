@@ -1,0 +1,5 @@
+Alta Dual Screen is a set of applications and UIs that run alongside the Alta Stack in a separate screen window. 
+The main principal is that Alta Dual Screen is treated Like one maximised browser window with half of it split by a bezel.
+The half contains a software keyboard and acts as a "b screen", where up to two applications can be moved down to allow for
+additional screen space. I may consider allowing support for a single window to span two screens, so long as the bezel isn't
+terribly obstructed. Limit will probably be something like <2cm for a decent user experience.
