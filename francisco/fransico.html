@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+
+body {
+  font-family: sans-serif;
+  padding: 0px;
+  background-image: url("https://i2.wp.com/512pixels.net/downloads/macos-wallpapers-thumbs/10-9--thumb.jpg?zoom=2&w=640");
+}
+
+#dock {
+  position: absolute;
+  left: 0;
+  top:0;
+  background-color: lightgrey;
+  height: 100vh;
+  width: 50px;
+  padding:5px;
+  left:-55px;
+  transition: left 0.5s;
+  box-shadow: 1px 1px 20px black;
+  z-index: 10;
+}
+#dock:hover {
+  left:0px;
+}
+
+#launcherBtn {
+  width: inherit;
+  height: 50px;
+  background-color: grey;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  transition: color .3s, background-color .7s;
+  font-size: 24px;
+}
+#launcherBtn:hover {
+  color: black;
+  background-color: white;
+}
+
+#launcherBtn:active {
+  background-color: blue;
+}
+
+.sampleApp {
+  background-color: lightgrey;
+  height:0px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 20px black;
+  left: 20px;
+  position: absolute;
+  transition: height .7s, width .7s;
+}
+
+</style>
+
+<body id="mainScreen">
+
+  <div id="dock">
+    <button id="launcherBtn" onclick="openNewFrame()">: :</button>
+  </div>
+
+  <div id="frame1" class="sampleApp">Sample App</div>
+
+</body>
+
+<script>
+ var openFrames = 0;
+ //set objects in the DOM
+ var sampleApp = document.querySelector(".sampleApp");
+ var launcherBtn = document.querySelector("#launcherBtn");
+ var mainScreen = document.querySelector("#mainScreen");
+ var windowWidth = window.innerWidth;
+ var windowheight = window.innerHeight;
+ var dock = document.querySelector("#dock");
+
+
+
+ //set styling on frames
+ var windowWidthAdjusted = windowWidth - 90; //accounts for the dock in unifying window size
+ sampleApp.style = "width: "+ windowWidthAdjusted +"px;" + "height:500px;";
+
+
+ function openNewFrame(activityIntent) {
+   var frame2 = document.createElement("div"); // TODO: automate frame names
+   mainScreen.appendChild(frame2);
+   openFrames = openFrames + 1; //// TODO: will expand into own function later
+   frame2.classList.add("sampleApp");
+   frame2.innerHtml=activityIntent;
+   var displacement = (windowheight-60)*openFrames;
+   frame2.style= "width: "+ windowWidthAdjusted +"px" + "; top: "+ displacement + "px;" + "height:500px;";
+   window.scrollBy({
+   top: displacement,
+   left: 0,
+   behavior: 'smooth'
+   });
+   dock.style = dock.style + " height: " + displacement + "px;";
+ }
+
+</script>
